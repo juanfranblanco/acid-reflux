@@ -8,7 +8,7 @@ npm start
 ```
 
 ### ANOTHER REACT.JS FRAMEWORK!?!?
-**Yes.** Now shutup and listen.
+**Yes.** Here me out.
 
 
 Reflux is very awesome, but found myself not caring too much for 
@@ -18,7 +18,7 @@ Reflux is very awesome, but found myself not caring too much for
 - "Connections"
 - "Filters"
 
-... what? stop it.
+... what? no. madness.
 
 ---
 
