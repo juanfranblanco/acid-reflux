@@ -3,12 +3,12 @@
 var config = require('./webpack.base.config.js');
 
 config.devServer = {
+  port: '4567',
   contentBase: 'src',
+  quiet: true,
   noInfo: true,
   https: false,
-  stats: {
-    colors: true
-  },
+  stats: { colors: true },
   historyApiFallback: true
 };
 
