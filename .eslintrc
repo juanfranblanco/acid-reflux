@@ -8,12 +8,21 @@
     "no-multi-spaces": [0],
     "no-unused-vars": [0],
     "no-loop-func": [0],
+    "no-debugger": [0],
     "new-cap": [0],
     "key-spacing": [0],
     "max-len": [2],
     "strict": [0],
-    "indent": [2,2],
-    "quotes": [2,"single","avoid-escape"],
+    "indent": [
+      2,
+      2
+    ],
+    "quotes": [
+      2,
+      "single",
+      "avoid-escape"
+    ],
+    "semi": [0],
     "curly": [0],
     "react/jsx-boolean-value": 1,
     "react/jsx-quotes": 1,

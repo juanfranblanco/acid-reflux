@@ -1,5 +1,6 @@
 // CSS Injection
 require('font-awesome-webpack');
+require('suitcss-base');
 require('react-datagrid/index.css');
 require('./App.css');
 
@@ -20,7 +21,6 @@ import SidebarNavigation from 'Global/components/SidebarNavigation/SidebarNaviga
 // Features
 import SignInFeature     from 'SignInFeature/SignInFeature.jsx';
 import Feature1          from 'Feature1/Feature1.jsx';
-import Feature2          from 'Feature2/Feature2.jsx';
 
 // Global Pages
 import NotFoundPage      from 'Global/components/Page404/Page404.jsx';
@@ -39,7 +39,7 @@ export default React.createClass({
     console.log({
       routeURL: obj,
       routeURLData: data
-    })
+    });
   },
 
   render() {
@@ -63,9 +63,6 @@ export default React.createClass({
             {/* InvoiceFeature */}
             <Location path='/feature1'            handler = { Feature1 } />
             <Location path='/feature1/:itemID'    handler = { Feature1 } />
-
-            {/* Auditing Feature */}
-            <Location path='/feature2'            handler = { Feature2 } />
 
             {/* Page Not Found */}
             <NotFound handler = { NotFoundPage } />

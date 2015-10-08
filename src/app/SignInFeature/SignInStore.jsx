@@ -39,7 +39,7 @@ export default Reflux.createStore({
     
     this.setStoreData({
       loggedInUser: PersonaDataObj
-    })
+    });
   },
   getLoggedInUser(){
     return this.data.loggedInUser;

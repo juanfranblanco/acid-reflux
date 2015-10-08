@@ -7,7 +7,7 @@ import Router from 'react-router-component';
 
 // Global Components
 import LoadingSpinner from 'Global/components/LoadingSpinner/LoadingSpinner.jsx';
-import TabsPage from 'Global/components/TabsPage/TabsPage.jsx'
+import TabsPage from 'Global/components/TabsPage/TabsPage.jsx';
 
 // Router Links
 var Link  = Router.Link; 
@@ -16,17 +16,18 @@ export default React.createClass({
   
   fireModal() {
     this.props.store.setStoreData({
-      feature1modal: { openStatus: true }
+      feature1Modal: { openStatus: true }
     });
+    console.log(this.props.store.data);
   },
   
   render() {
 
     var panelABody;
 
-    this.props.store.data.something === undefined ?
-      panelABody = <Link href={'/feature1/hiiii'}>Hiiii</Link> :
-      panelABody = <LoadingSpinner/>;
+    this.props.store.data.quandlData === undefined ?
+      panelABody = <LoadingSpinner/> :
+      panelABody = (<div><Link href={'/feature1/hiiii'}>Hiiii</Link>{this.props.store.data.quandlData}</div>);
       
     var Panels = [
       {

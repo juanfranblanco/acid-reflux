@@ -1,4 +1,4 @@
-require('./TabsPage.css')
+require('./TabsPage.css');
 
 // Modules
 import React from 'react/addons'; 

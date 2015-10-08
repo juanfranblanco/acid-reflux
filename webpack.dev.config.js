@@ -3,7 +3,7 @@
 var config = require('./webpack.base.config.js');
 
 config.devServer = {
-  port: '4567',
+  port: '8765',
   contentBase: 'src',
   quiet: true,
   noInfo: true,

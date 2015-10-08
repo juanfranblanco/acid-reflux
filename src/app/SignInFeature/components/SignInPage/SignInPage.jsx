@@ -41,7 +41,7 @@ export default React.createClass({
 
       personasList.push(
         <li key={'persona-' + persona.guid}>
-          <Link onClick={this.userSelection.bind(this, persona)} ref='invoicesLink' href='/invoices'>
+          <Link onClick={this.userSelection.bind(this, persona)} ref='featureLink' href='/feature1'>
             <div>
               <div className='userpic' style={ {backgroundImage: 'url(' + persona.picture + ')'} }/>
               <label className='name'>{persona.name.first + ' ' + persona.name.last}</label>

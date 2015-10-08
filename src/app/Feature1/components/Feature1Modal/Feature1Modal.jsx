@@ -1,4 +1,4 @@
-require('./CreateInvoiceModal.css');
+require('./Feature1Modal.css');
 
 // Modules
 import React  from 'react/addons';
@@ -14,7 +14,7 @@ export default React.createClass({
   closeModal() {
     this.props.store.setStoreData({
       feature1Modal: {
-        openStatus: false,
+        openStatus: false
       }
     }); 
   },
@@ -28,6 +28,7 @@ export default React.createClass({
   },
   
   submitBtnClick() {
+    this.props.store.someStoreMethod();
     this.closeModal();
   },
 

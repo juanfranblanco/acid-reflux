@@ -17,7 +17,7 @@ export default React.createClass({
   publishedDataStatus(data) {data.event === 'updatedStoreData' ? this.forceUpdate() : null; },  
   render() {
     return (
-      <div className='feature1'>
+      <div className='feature1-feature'>
         { !Feature1Store.data.feature1Modal.openStatus ? null : 
             <Feature1Modal store={Feature1Store}/>}
         { !this.props.itemID ? <Feature1Page store={Feature1Store}/> :

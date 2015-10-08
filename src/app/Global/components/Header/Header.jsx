@@ -46,17 +46,21 @@ export default React.createClass({
         window.featuresContainer.navigate(ShortCutRouteTable[shortCutKey].url) : null
     }
   },
+
+  focusTypeAhead() {
+    SignInStore.setStoreData({visualhalo: true});
+  },
   
   toggleVisualHalo (event){
-    !!event.target.value === true ? 
-      SignInStore.setStoreData({visualhalo:false})
-      :
-      SignInStore.setStoreData({visualhalo:true})
+    
+    if(event.which !== 32 && event.which !== 17){
+      !!event.target.value === true ? 
+        SignInStore.setStoreData({visualhalo:false})
+        :
+        SignInStore.setStoreData({visualhalo: true});
+    }
 
-    event.which === 27 ?
-      React.findDOMNode(event.target).blur() 
-      : 
-      null
+    event.which === 27 ? React.findDOMNode(event.target).blur() : null
   },
   
   dumpVisualHalo() {
@@ -72,14 +76,14 @@ export default React.createClass({
 
     return (
       <header className="app-header">
-        <Balanc3Logo />
+        <div>LOGO HERE</div>
         <Typeahead ref="typeahead"
                    className={typeAheadClassNames}
                    placeholder="Search..."
                    options={this.typeAheadOptions} 
                    maxVisible={10}
                    onOptionSelected={this.handleOptionSelected}
-                   onFocus={this.toggleVisualHalo}
+                   onFocus={this.focusTypeAhead}
                    onKeyUp={this.toggleVisualHalo}
                    onBlur={this.dumpVisualHalo}/>
         <HeaderNavigation store={SignInStore}/>

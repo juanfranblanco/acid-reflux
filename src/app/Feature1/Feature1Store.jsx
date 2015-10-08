@@ -12,8 +12,8 @@ export default Reflux.createStore({
       sup: 'yo',
       hi: 'blah',
       openStatus: false
-    }
-    dummy: 'blahblahblahblahblahblahblahblahblahblah'
+    },
+    dummyData: 'blah'
   },
 
   init() {
@@ -43,19 +43,19 @@ export default Reflux.createStore({
   },
 
   someStoreMethod(callback) {
-    var requestURL = 'https://www.quandl.com/api/v3/datasets/WIKI/ABBV.json;';
+    console.log('someStoreMethod')
+
+    var requestURL = 'https://www.quandl.com/api/v3/datasets/WIKI/ABBV.json';
     
-    Request(requestURL).then((dataPayLoad) => { 
-      
-      console.log('You triggered a store method!');
+    Request.get(requestURL).then((dataPayLoad) => { 
       
       // Think of this as setState
-      this.setStoreData({
-        quandlData: dataPayLoad;
-      })
+      this.setStoreData({ quandlData: dataPayLoad });
+
+      console.log(this.data);
     });
 
-    callback();
+    if(callback) { callback(); }
   },
 
   anotherStoreMethod(data) {

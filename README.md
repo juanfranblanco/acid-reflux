@@ -1,8 +1,101 @@
-Install modules and start server with: `npm start`
+# Acid-Reflux
+![Alt text](acid-reflux-logo.png)
 
-Learning: [React Lifecycle](http://javascript.tutorialhorizon.com/2014/09/13/execution-sequence-of-a-react-components-lifecycle-methods/)
+To install modules and start server
 
-See `package.json -> scripts: { ... }` for other scripts
+```
+npm start
+```
+
+### ANOTHER REACT.JS FRAMEWORK!?!?
+**Yes.** Now shutup and listen.
+
+
+Reflux is very awesome, but found myself not caring too much for 
+
+- "Action Dictionaries"
+- "Listener Instances"
+- "Connections"
+- "Filters"
+
+... what? stop it.
+
+---
+
+I want to think about only **2 things** ever. 
+
+- A place where I can **centralize my state** for an entire "feature", and **call functions that are relative to more than just a specific component** in that feature
+- My view logic for showing / hiding things
+
+So then it looks more like this.
+
+```
+╔═════════╗       ╔════════════╗
+║ "Store" ║──────>║ Components ║
+╚═════════╝       ╚════════════╝
+     ^                     │
+     └─────────────────────┘
+     
+```
+
+How on earth can we achieve such a feet? 
+
+Very simple my friend... **Reinvent The Wheel™**
+
+The core of what is going is a re-implementation of `this.setState()`... **BUT AT THE STORE LEVEL.**
+
+We pass the **whole store (including its methods and state data) all the way down the line as a prop** to give access to `setStoreData` and other custom methods, as well as a way leverage a **"pure props"** rendering approach. [The dream is real](http://aeflash.com/imgs/data_flow1.svg). [No more nightmares](http://aeflash.com/imgs/data_flow2.svg)
+
+So we now have a truly singular place for accessing a Feature's "global" methods and a way of setting/reading state for ALL of its components. 
+
+What is even better is the stores use the **global pub-sub** model for **broadcasting updates to state**. Other "Features" can then listen to other store events with extreme ease if necessary.
+
+For icing on the cake, not related to Relfux, we have setup through webpack a way to scale styles without needing to manage a "stylesheet config file" aka the infamous `App.css`. Simply add a .css file right next to your .jsx file in your component folder.
+Here is how a feature would look.
+
+```
+├── app
+│   ├── App.css
+│   ├── App.jsx
+│   ├── Feature1
+│   │   ├── Feature1.jsx
+│   │   ├── Feature1Store.jsx
+│   │   └── components
+│   │       ├── Feature1Details
+│   │       │   ├── Feature1Details.css
+│   │       │   └── Feature1Details.jsx
+│   │       ├── Feature1Modal
+│   │       │   ├── Feature1Modal.css
+│   │       │   └── Feature1Modal.jsx
+│   │       └── Feature1Page
+│   │           ├── Feature1Page.css
+│   │           └── Feature1Page.jsx
+```
+NOTE: The Feature File next to the store acts as a parent component that triggers renders all the way down the pipe by listening to store broadcasts.
+
+When creating new features. You can simply copy paste a template feature folder and customize away. In some cases, you may want modify how a feature listens to its (or other) stores, or instead of merging state data, overwrite it with _.assign.
+
+This is more a methodology than a hardcoded framework you cannot deviate from. Pull requests and forking are HIGHLY encouraged.
+
+---------------------------------
+
+**WAIT THERE IS MORE!!**
+
+- Router with fuzzy search! (think Sublime Text and Alfred)
+- Basic modal component.
+- Flexbox all the things
+- Tab component
+- Loading Spinner
+
+---------------------------------
+
+Learning
+=============
+
+
+- [React Lifecycle](http://javascript.tutorialhorizon.com/2014/09/13/execution-sequence-of-a-react-components-lifecycle-methods/)
+- [React Best Practices](http://aeflash.com/2015-02/react-tips-and-best-practices.html)
+
 
 
 Technologies
@@ -15,7 +108,7 @@ Technologies
 - [Jest](http://facebook.github.io/jest/) - Painless Javascript Unit Testing
 - [Nightwatch](http://nightwatchjs.org/) - is an easy to use Node.js based End-to-End (E2E) testing solution for browser based apps and websites.
 - [PostCSS](https://github.com/postcss/postcss) - is a tool for transforming CSS with JS plugins
-- [SuitCSS](https://suitcss.github.io/)
+- [SuitCSS](https://suitcss.github.io/) - For normalization and any helpful patterns
 - [Babel](https://babeljs.io/) - Babel will turn your ES6+ code into ES5 friendly code, so you can start using it right now without waiting for browser support
 - [ESLint](http://eslint.org/) - The pluggable linting utility for JavaScript and JSX 
 
