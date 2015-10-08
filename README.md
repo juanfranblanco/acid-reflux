@@ -50,7 +50,7 @@ So we now have a truly singular place for accessing a Feature's "global" methods
 
 What is even better is the stores use the **global pub-sub** model for **broadcasting updates to state**. Other "Features" can then listen to other store events with extreme ease if necessary.
 
-For icing on the cake, not related to Relfux, we have setup through webpack a way to scale styles without needing to manage a "stylesheet config file" aka the infamous `App.css`. Simply add a .css file right next to your .jsx file in your component folder.
+For icing on the cake, not related to Relfux, we have setup through webpack a way to scale styles without needing to manage a "stylesheet config file" aka the infamous `App.css`. Simply add a .css file right next to your .jsx file in your component folder and `require` it.
 Here is how a feature would look.
 
 ```
