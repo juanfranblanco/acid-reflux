@@ -22,7 +22,7 @@ Reflux is very awesome, but found myself not caring too much for
 
 ---
 
-I want to think about only **2 things** ever. 
+I want to think about only **2 things**. 
 
 - A place where I can **centralize my state** for an entire "feature", and **call functions that are relative to more than just a specific component** in that feature
 - My view logic for showing / hiding things
@@ -42,7 +42,7 @@ How on earth can we achieve such a feet?
 
 Very simple my friend... **Reinvent The Wheel™**
 
-The core of what is going is a re-implementation of `this.setState()`... **BUT AT THE STORE LEVEL.**
+The core of what is going is a re-implementation of `this.setState()`... **but at the store level.**
 
 We pass the **whole store (including its methods and state data) all the way down the line as a prop** to give access to `setStoreData` and other custom methods, as well as a way leverage a **"pure props"** rendering approach. [The dream is real](http://aeflash.com/imgs/data_flow1.svg). [No more nightmares](http://aeflash.com/imgs/data_flow2.svg)
 
@@ -50,7 +50,7 @@ So we now have a truly singular place for accessing a Feature's "global" methods
 
 What is even better is the stores use the **global pub-sub** model for **broadcasting updates to state**. Other "Features" can then listen to other store events with extreme ease if necessary.
 
-For icing on the cake, not related to Relfux, we have setup through webpack a way to scale styles without needing to manage a "stylesheet config file" aka the infamous `App.css`. Simply add a .css file right next to your .jsx file in your component folder and `require` it.
+For icing on the cake, not related to Relfux, I have setup through webpack a way to scale styles without needing to manage a "stylesheet config file" aka the infamous `App.css`. Simply add a .css file right next to your .jsx file in your component folder and `require` it in the JSX file right next to it.
 Here is how a feature would look.
 
 ```
