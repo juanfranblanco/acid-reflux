@@ -13,7 +13,7 @@ import SignInStore from 'SignInFeature/SignInStore.jsx';
 
 // Components
 import HeaderNavigation from 'Global/components/HeaderNavigation/HeaderNavigation.jsx';
-import Balanc3Logo      from 'Global/components/Balanc3Logo/Balanc3Logo.jsx';
+
 
 export default React.createClass({
   mixins: [Reflux.ListenerMixin],
